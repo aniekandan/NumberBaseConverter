@@ -1,0 +1,160 @@
+﻿<UserControl x:Class="FromBaseTenCommandView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MainApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <local:FiguresToWordsConverter x:Key="FiguresToWordsConverter"/>
+
+    </UserControl.Resources>
+
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" Background="White" CornerRadius="7">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="3" ShadowDepth="3"/>
+            </Border.Effect>
+            
+        </Border>
+
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="7">
+            <local:DisplayTemplateSelector Monitor="{Binding IsEditMode}">
+                <local:DisplayTemplateSelector.ViewTemplate>
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+
+                        </Grid.RowDefinitions>
+
+                        <!--Row 0 hosts the command text formatting-->
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="Auto"/>
+
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="Convert" VerticalAlignment="Center" FontSize="30"/>
+
+                            <TextBlock Grid.Column="2" Text="{Binding Number.Text}" VerticalAlignment="Center" FontSize="30"/>
+                            <TextBlock Grid.Column="3" Text="Ten" VerticalAlignment="Bottom" FontSize="10"/>
+
+                            <TextBlock Grid.Column="5" Text="to base" VerticalAlignment="Center" FontSize="30"/>
+                            
+                            <TextBlock Grid.Column="7" Text="{Binding ToBase.Text, Converter={StaticResource FiguresToWordsConverter}}"
+                                        VerticalAlignment="Center" FontSize="30"/>
+
+                        </Grid>
+
+                        <!--Row 1 hosts the result of the computation-->
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <!--The arrow symbol. The derivation step-->
+                            <Image Source="/MainApp;component/View/Images/derivation step.png" Stretch="Fill"
+                                   Width="50" Height="20" VerticalAlignment="Center" />
+
+                            <!--space-->
+                            <TextBlock Width="15" FontSize="30" VerticalAlignment="Center"/>
+
+                            <!--The final result-->
+                            <TextBlock Text="{Binding Result}" FontSize="30" VerticalAlignment="Center"/>
+
+                            <TextBlock FontSize="10" VerticalAlignment="Bottom"
+                                       Text="{Binding ToBase.Text, Converter={StaticResource FiguresToWordsConverter}}"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </local:DisplayTemplateSelector.ViewTemplate>
+
+                <local:DisplayTemplateSelector.EditTemplate>
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="Auto"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="Auto"/>
+
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Convert" VerticalAlignment="Center" FontSize="30"/>
+
+                            <!--number to convert-->
+                            <local:CommandArgumentView DataContext="{Binding Number}" Width="100"
+                                     Grid.Column="2" Grid.Row="0"  FontSize="30"/>
+
+                            <TextBlock Grid.Row="0" Grid.Column="4" Text="Ten" VerticalAlignment="Bottom"  FontSize="10"/>
+
+                            <!--source base-->
+                            <TextBlock Grid.Row="0" Grid.Column="6" Text="to base" VerticalAlignment="Center"  FontSize="30"/>
+                            
+                            <local:CommandArgumentView DataContext="{Binding ToBase}" Width="50"
+                                     Grid.Column="8" Grid.Row="0"  FontSize="30"/>
+
+                        </Grid>
+
+                        <Button ToolTip="Calculate Now" Grid.Column="1"  Height="30" IsDefault="True"
+                                Command="{Binding AcceptCommand}" CommandParameter="{Binding}">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Image Source="/MainApp;component/View/Images/calculate.png" Stretch="Fill"/>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                        </Button>
+
+                        <Button ToolTip="Remove this command" Grid.Column="3" Height="30" IsCancel="True"
+                                Command="{Binding CancelCommand}" CommandParameter="{Binding}">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Image Source="/MainApp;component/View/Images/cancel.png" Stretch="Fill"/>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                        </Button>
+
+                    </Grid>
+
+                </local:DisplayTemplateSelector.EditTemplate>
+
+            </local:DisplayTemplateSelector>
+
+        </Border>
+
+    </Grid>
+   
+</UserControl>

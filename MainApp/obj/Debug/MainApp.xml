@@ -1,0 +1,171 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MainApp
+</name>
+</assembly>
+<members>
+<member name="T:MainApp.My.MyWpfExtension">
+ <summary>
+ Module used to define the properties that are available in the My Namespace for WPF
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:MainApp.My.MyWpfExtension.Application">
+ <summary>
+ Returns the application object for the running application
+ </summary>
+</member>
+<member name="P:MainApp.My.MyWpfExtension.Computer">
+ <summary>
+ Returns information about the host computer.
+ </summary>
+</member>
+<member name="P:MainApp.My.MyWpfExtension.User">
+ <summary>
+ Returns information for the current user.  If you wish to run the application with the current 
+ Windows user credentials, call My.User.InitializeWithWindowsUser().
+ </summary>
+</member>
+<member name="P:MainApp.My.MyWpfExtension.Log">
+ <summary>
+ Returns the application log. The listeners can be configured by the application's configuration file.
+ </summary>
+</member>
+<member name="P:MainApp.My.MyWpfExtension.Windows">
+ <summary>
+ Returns the collection of Windows defined in the project.
+ </summary>
+</member>
+<member name="T:MainApp.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:MainApp.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:MainApp.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:MainApp.FromBaseTenCommandModel.ConvertFromBaseTen(System.UInt32,System.UInt32)">
+ <summary>
+ Converts the number given in base ten to the target base
+ </summary>
+ <param name="n">The number to convert</param>
+ <param name="toBase">The target base. Should be from two to nine</param>
+ <returns></returns>
+</member>
+<member name="M:MainApp.ToBaseTenCommandModel.ConvertToBaseTen(System.String,System.UInt32)">
+ <summary>
+ Converts the number given as a digit string in the source base to base ten
+ </summary>
+ <param name="digitString">The number to convert to base ten</param>
+ <param name="fromBase">The base the number is in. Should be from two to nine</param>
+ <returns></returns>
+</member>
+<member name="T:MainApp.CommandArgumentView">
+<summary>
+CommandArgumentView
+</summary>
+</member>
+<member name="M:MainApp.CommandArgumentView.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:MainApp.DisplayTemplateSelector">
+<summary>
+DisplayTemplateSelector
+</summary>
+</member>
+<member name="M:MainApp.DisplayTemplateSelector.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:MainApp.FromBaseTenCommandView">
+<summary>
+FromBaseTenCommandView
+</summary>
+</member>
+<member name="M:MainApp.FromBaseTenCommandView.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="M:MainApp.FiguresToWords.ConvertTwoDigits(System.String)">
+ <summary>
+ Converts a two digit number to words
+ </summary>
+ <param name="num">the two digit number as a string</param>
+ <returns>A string representing the figure as a word</returns>
+</member>
+<member name="T:MainApp.ToBaseTenCommandView">
+<summary>
+ToBaseTenCommandView
+</summary>
+</member>
+<member name="M:MainApp.ToBaseTenCommandView.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:MainApp.CommandHost">
+<summary>
+CommandHost
+</summary>
+</member>
+<member name="M:MainApp.CommandHost.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:MainApp.MainWindow">
+<summary>
+MainWindow
+</summary>
+</member>
+<member name="M:MainApp.MainWindow.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:MainApp.XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+<summary>
+GeneratedInternalTypeHelper
+</summary>
+</member>
+<member name="M:MainApp.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+<summary>
+CreateInstance
+</summary>
+</member>
+<member name="M:MainApp.XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+<summary>
+GetPropertyValue
+</summary>
+</member>
+<member name="M:MainApp.XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+<summary>
+SetPropertyValue
+</summary>
+</member>
+<member name="M:MainApp.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+<summary>
+CreateDelegate
+</summary>
+</member>
+<member name="M:MainApp.XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+<summary>
+AddEventHandler
+</summary>
+</member>
+</members>
+</doc>
